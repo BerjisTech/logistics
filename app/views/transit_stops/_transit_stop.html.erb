@@ -1,0 +1,17 @@
+<div id="<%= dom_id transit_stop %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Company branch:</strong>
+    <%= transit_stop.company_branch_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Transit route:</strong>
+    <%= transit_stop.transit_route_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this transit stop", transit_stop, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this transit stop', edit_transit_stop_path(transit_stop), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<div id="<%= dom_id staff_type %>">
+  <% if action_name != "show" %>
+    <%= link_to "Show this staff type", staff_type, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this staff type', edit_staff_type_path(staff_type), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
