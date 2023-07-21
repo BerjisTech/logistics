@@ -1,1 +1,3 @@
-json.partial! "occupied_storages/occupied_storage", occupied_storage: @occupied_storage
+# frozen_string_literal: true
+
+json.partial! 'occupied_storages/occupied_storage', occupied_storage: @occupied_storage

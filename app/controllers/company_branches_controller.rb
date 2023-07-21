@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CompanyBranchesController < ApplicationController
-  before_action :set_company_branch, only: %i[ show edit update destroy ]
+  before_action :set_company_branch, only: %i[show edit update destroy]
 
   # GET /company_branches or /company_branches.json
   def index
@@ -7,8 +9,7 @@ class CompanyBranchesController < ApplicationController
   end
 
   # GET /company_branches/1 or /company_branches/1.json
-  def show
-  end
+  def show; end
 
   # GET /company_branches/new
   def new
@@ -16,8 +17,7 @@ class CompanyBranchesController < ApplicationController
   end
 
   # GET /company_branches/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /company_branches or /company_branches.json
   def create
@@ -25,7 +25,9 @@ class CompanyBranchesController < ApplicationController
 
     respond_to do |format|
       if @company_branch.save
-        format.html { redirect_to company_branch_url(@company_branch), notice: "Company branch was successfully created." }
+        format.html do
+          redirect_to company_branch_url(@company_branch), notice: 'Company branch was successfully created.'
+        end
         format.json { render :show, status: :created, location: @company_branch }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,9 @@ class CompanyBranchesController < ApplicationController
   def update
     respond_to do |format|
       if @company_branch.update(company_branch_params)
-        format.html { redirect_to company_branch_url(@company_branch), notice: "Company branch was successfully updated." }
+        format.html do
+          redirect_to company_branch_url(@company_branch), notice: 'Company branch was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @company_branch }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +56,20 @@ class CompanyBranchesController < ApplicationController
     @company_branch.destroy
 
     respond_to do |format|
-      format.html { redirect_to company_branches_url, notice: "Company branch was successfully destroyed." }
+      format.html { redirect_to company_branches_url, notice: 'Company branch was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company_branch
-      @company_branch = CompanyBranch.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def company_branch_params
-      params.require(:company_branch).permit(:company_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company_branch
+    @company_branch = CompanyBranch.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def company_branch_params
+    params.require(:company_branch).permit(:company_id)
+  end
 end

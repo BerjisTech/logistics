@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StoragesController < ApplicationController
-  before_action :set_storage, only: %i[ show edit update destroy ]
+  before_action :set_storage, only: %i[show edit update destroy]
 
   # GET /storages or /storages.json
   def index
@@ -7,8 +9,7 @@ class StoragesController < ApplicationController
   end
 
   # GET /storages/1 or /storages/1.json
-  def show
-  end
+  def show; end
 
   # GET /storages/new
   def new
@@ -16,8 +17,7 @@ class StoragesController < ApplicationController
   end
 
   # GET /storages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /storages or /storages.json
   def create
@@ -25,7 +25,7 @@ class StoragesController < ApplicationController
 
     respond_to do |format|
       if @storage.save
-        format.html { redirect_to storage_url(@storage), notice: "Storage was successfully created." }
+        format.html { redirect_to storage_url(@storage), notice: 'Storage was successfully created.' }
         format.json { render :show, status: :created, location: @storage }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class StoragesController < ApplicationController
   def update
     respond_to do |format|
       if @storage.update(storage_params)
-        format.html { redirect_to storage_url(@storage), notice: "Storage was successfully updated." }
+        format.html { redirect_to storage_url(@storage), notice: 'Storage was successfully updated.' }
         format.json { render :show, status: :ok, location: @storage }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class StoragesController < ApplicationController
     @storage.destroy
 
     respond_to do |format|
-      format.html { redirect_to storages_url, notice: "Storage was successfully destroyed." }
+      format.html { redirect_to storages_url, notice: 'Storage was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_storage
-      @storage = Storage.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def storage_params
-      params.require(:storage).permit(:company_branch_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_storage
+    @storage = Storage.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def storage_params
+    params.require(:storage).permit(:company_branch_id)
+  end
 end

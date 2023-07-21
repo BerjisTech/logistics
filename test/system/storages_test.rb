@@ -1,41 +1,43 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class StoragesTest < ApplicationSystemTestCase
   setup do
     @storage = storages(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit storages_url
-    assert_selector "h1", text: "Storages"
+    assert_selector 'h1', text: 'Storages'
   end
 
-  test "should create storage" do
+  test 'should create storage' do
     visit storages_url
-    click_on "New storage"
+    click_on 'New storage'
 
-    fill_in "Company branch", with: @storage.company_branch_id
-    click_on "Create Storage"
+    fill_in 'Company branch', with: @storage.company_branch_id
+    click_on 'Create Storage'
 
-    assert_text "Storage was successfully created"
-    click_on "Back"
+    assert_text 'Storage was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Storage" do
+  test 'should update Storage' do
     visit storage_url(@storage)
-    click_on "Edit this storage", match: :first
+    click_on 'Edit this storage', match: :first
 
-    fill_in "Company branch", with: @storage.company_branch_id
-    click_on "Update Storage"
+    fill_in 'Company branch', with: @storage.company_branch_id
+    click_on 'Update Storage'
 
-    assert_text "Storage was successfully updated"
-    click_on "Back"
+    assert_text 'Storage was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Storage" do
+  test 'should destroy Storage' do
     visit storage_url(@storage)
-    click_on "Destroy this storage", match: :first
+    click_on 'Destroy this storage', match: :first
 
-    assert_text "Storage was successfully destroyed"
+    assert_text 'Storage was successfully destroyed'
   end
 end

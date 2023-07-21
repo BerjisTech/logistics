@@ -1,45 +1,47 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class RoutesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @route = routes(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get routes_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_route_url
     assert_response :success
   end
 
-  test "should create route" do
-    assert_difference("Route.count") do
+  test 'should create route' do
+    assert_difference('Route.count') do
       post routes_url, params: { route: { company_branch_id: @route.company_branch_id } }
     end
 
     assert_redirected_to route_url(Route.last)
   end
 
-  test "should show route" do
+  test 'should show route' do
     get route_url(@route)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_route_url(@route)
     assert_response :success
   end
 
-  test "should update route" do
+  test 'should update route' do
     patch route_url(@route), params: { route: { company_branch_id: @route.company_branch_id } }
     assert_redirected_to route_url(@route)
   end
 
-  test "should destroy route" do
-    assert_difference("Route.count", -1) do
+  test 'should destroy route' do
+    assert_difference('Route.count', -1) do
       delete route_url(@route)
     end
 

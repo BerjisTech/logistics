@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :occupied_storages
   resources :transactions
@@ -20,15 +22,19 @@ Rails.application.routes.draw do
 
   devise_for :mtus, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 
-  get 'landing/home'
-  get 'landing/about'
-  get 'landing/contact'
-  get 'landing/faq'
-  get 'landing/storage'
-  get 'landing/supply'
-  get 'landing/manufacture'
+  get 'home', controller: 'landing', action: 'home'
+  get 'about', controller: 'landing', action: 'about'
+  get 'contact', controller: 'landing', action: 'contact'
+  get 'faq', controller: 'landing', action: 'faq'
+  get 'storage', controller: 'landing', action: 'storage'
+  get 'supply', controller: 'landing', action: 'supply'
+  get 'manufacture', controller: 'landing', action: 'manufacture'
+
+  get 'cc', controller: 'command_center', action: 'command_center'
+  get ':company/cc', controller: 'command_center', action: 'command_center'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "landing#home"
+  root 'landing#home'
 end

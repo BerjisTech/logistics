@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOccupiedStorages < ActiveRecord::Migration[7.0]
   def change
     create_table :occupied_storages, id: :uuid do |t|

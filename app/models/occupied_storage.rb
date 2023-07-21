@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OccupiedStorage < ApplicationRecord
   belongs_to :storage
   belongs_to :client

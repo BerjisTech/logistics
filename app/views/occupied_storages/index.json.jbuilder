@@ -1,1 +1,3 @@
-json.array! @occupied_storages, partial: "occupied_storages/occupied_storage", as: :occupied_storage
+# frozen_string_literal: true
+
+json.array! @occupied_storages, partial: 'occupied_storages/occupied_storage', as: :occupied_storage

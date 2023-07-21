@@ -1,41 +1,43 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class RoutesTest < ApplicationSystemTestCase
   setup do
     @route = routes(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit routes_url
-    assert_selector "h1", text: "Routes"
+    assert_selector 'h1', text: 'Routes'
   end
 
-  test "should create route" do
+  test 'should create route' do
     visit routes_url
-    click_on "New route"
+    click_on 'New route'
 
-    fill_in "Company branch", with: @route.company_branch_id
-    click_on "Create Route"
+    fill_in 'Company branch', with: @route.company_branch_id
+    click_on 'Create Route'
 
-    assert_text "Route was successfully created"
-    click_on "Back"
+    assert_text 'Route was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Route" do
+  test 'should update Route' do
     visit route_url(@route)
-    click_on "Edit this route", match: :first
+    click_on 'Edit this route', match: :first
 
-    fill_in "Company branch", with: @route.company_branch_id
-    click_on "Update Route"
+    fill_in 'Company branch', with: @route.company_branch_id
+    click_on 'Update Route'
 
-    assert_text "Route was successfully updated"
-    click_on "Back"
+    assert_text 'Route was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Route" do
+  test 'should destroy Route' do
     visit route_url(@route)
-    click_on "Destroy this route", match: :first
+    click_on 'Destroy this route', match: :first
 
-    assert_text "Route was successfully destroyed"
+    assert_text 'Route was successfully destroyed'
   end
 end

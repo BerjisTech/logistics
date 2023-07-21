@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class OccupiedStoragesController < ApplicationController
-  before_action :set_occupied_storage, only: %i[ show edit update destroy ]
+  before_action :set_occupied_storage, only: %i[show edit update destroy]
 
   # GET /occupied_storages or /occupied_storages.json
   def index
@@ -7,8 +9,7 @@ class OccupiedStoragesController < ApplicationController
   end
 
   # GET /occupied_storages/1 or /occupied_storages/1.json
-  def show
-  end
+  def show; end
 
   # GET /occupied_storages/new
   def new
@@ -16,8 +17,7 @@ class OccupiedStoragesController < ApplicationController
   end
 
   # GET /occupied_storages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /occupied_storages or /occupied_storages.json
   def create
@@ -25,7 +25,9 @@ class OccupiedStoragesController < ApplicationController
 
     respond_to do |format|
       if @occupied_storage.save
-        format.html { redirect_to occupied_storage_url(@occupied_storage), notice: "Occupied storage was successfully created." }
+        format.html do
+          redirect_to occupied_storage_url(@occupied_storage), notice: 'Occupied storage was successfully created.'
+        end
         format.json { render :show, status: :created, location: @occupied_storage }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,9 @@ class OccupiedStoragesController < ApplicationController
   def update
     respond_to do |format|
       if @occupied_storage.update(occupied_storage_params)
-        format.html { redirect_to occupied_storage_url(@occupied_storage), notice: "Occupied storage was successfully updated." }
+        format.html do
+          redirect_to occupied_storage_url(@occupied_storage), notice: 'Occupied storage was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @occupied_storage }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +56,20 @@ class OccupiedStoragesController < ApplicationController
     @occupied_storage.destroy
 
     respond_to do |format|
-      format.html { redirect_to occupied_storages_url, notice: "Occupied storage was successfully destroyed." }
+      format.html { redirect_to occupied_storages_url, notice: 'Occupied storage was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_occupied_storage
-      @occupied_storage = OccupiedStorage.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def occupied_storage_params
-      params.require(:occupied_storage).permit(:storage_id, :client_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_occupied_storage
+    @occupied_storage = OccupiedStorage.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def occupied_storage_params
+    params.require(:occupied_storage).permit(:storage_id, :client_id)
+  end
 end
