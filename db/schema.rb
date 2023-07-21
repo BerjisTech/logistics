@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_21_151536) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_21_154737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -94,6 +94,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_151536) do
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_occupied_storages_on_client_id"
     t.index ["storage_id"], name: "index_occupied_storages_on_storage_id"
+  end
+
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "company_branch_id", null: false
+    t.uuid "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["company_branch_id"], name: "index_orders_on_company_branch_id"
   end
 
   create_table "owners", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -182,6 +191,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_151536) do
   add_foreign_key "company_branches", "companies"
   add_foreign_key "occupied_storages", "clients"
   add_foreign_key "occupied_storages", "storages"
+  add_foreign_key "orders", "clients"
+  add_foreign_key "orders", "company_branches"
   add_foreign_key "owners", "mtus"
   add_foreign_key "products", "company_branches"
   add_foreign_key "routes", "company_branches"

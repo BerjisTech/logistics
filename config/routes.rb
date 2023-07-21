@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :orders
   resources :occupied_storages
   resources :transactions
   resources :transit_stops

@@ -8,4 +8,5 @@ class Mtu < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable,
          :omniauthable
   has_many :owners
+  has_many :companies, through: :owners
 end
