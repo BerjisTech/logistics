@@ -7,6 +7,11 @@ class Mtu < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable,
          :omniauthable
-  has_many :owners
-  has_many :companies, through: :owners
+  has_one :owner
+  has_many :companies, through: :owner
+  has_many :company_branches, through: :companies
+  has_many :products, through: :company_branches
+  has_many :orders, dependent: :destroy
+  has_many :clients, dependent: :destroy
+  has_many :staffs, dependent: :destroy
 end

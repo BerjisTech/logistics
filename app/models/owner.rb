@@ -6,5 +6,6 @@ class Owner < ApplicationRecord
   has_many :company_branches, through: :companies
   has_many :clients, through: :company_branches
   has_many :staffs, through: :company_branches
-  has_many :orders, through: :clients
+  has_many :products, through: :company_branches
+  has_many :orders, through: :products
 end

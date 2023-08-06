@@ -47,6 +47,7 @@ class DeviseCreateMtus < ActiveRecord::Migration[7.0]
       t.boolean :suspended, default: false
       t.boolean :deleted, default: false
       t.boolean :verified, default: false
+      t.boolean :beginner_guide, default: true
 
       t.timestamps null: false
     end

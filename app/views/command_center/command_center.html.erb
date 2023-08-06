@@ -1,6 +1,6 @@
-<% if current_mtu.suggest_owner_guide || current_mtu.suggest_service_provider_guide || current_mtu.suggest_property_guide %>
-  <%= render 'operations_room/guide_main' %>
+<% if current_mtu.beginner_guide %>
+  <%= render 'command_center/guide_main' %>
 <% end %>
-<% if !current_mtu.suggest_owner_guide || !current_mtu.suggest_service_provider_guide %>
-  <%= render 'operations_room/dashboard' %>
+<% if !current_mtu.beginner_guide %>
+  <%= render 'command_center/dashboard' %>
 <% end %>

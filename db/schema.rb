@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_154737) do
     t.boolean "suspended", default: false
     t.boolean "deleted", default: false
     t.boolean "verified", default: false
+    t.boolean "beginner_guide", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_mtus_on_confirmation_token", unique: true

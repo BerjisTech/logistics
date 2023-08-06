@@ -31,8 +31,11 @@ Rails.application.routes.draw do
   get 'supply', controller: 'landing', action: 'supply'
   get 'manufacture', controller: 'landing', action: 'manufacture'
 
+  get 'command_center', controller: 'command_center', action: 'command_center'
   get 'cc', controller: 'command_center', action: 'command_center'
+  get 'operations_center', controller: 'command_center', action: 'command_center'
   get ':company/cc', controller: 'command_center', action: 'command_center'
+  get 'ignore_suggester/:suggester', controller: 'command_center', action: 'ignore_suggester', as: 'ignore_suggester'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
