@@ -18,3 +18,8 @@
   top: 0;
   z-index: 999;
 }
+
+.writing-vertical-lr{
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
